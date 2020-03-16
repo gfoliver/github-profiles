@@ -21,10 +21,12 @@ function App() {
 	return (
 		<div className={`App ${theme}`}>
             <header>
+                <label htmlFor="switchTheme">Dark</label>
                 <div className="switchWrapper">
-                    <input type="checkbox" id="switchTheme" onChange={handleThemeChange} value={theme == 'light'} />
+                    <input type="checkbox" id="switchTheme" onChange={handleThemeChange} checked={theme == 'light'} />
                     <label htmlFor="switchTheme"></label>
                 </div>
+                <label htmlFor="switchTheme">Light</label>
             </header>
 			<Router>
 				<Switch>

@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 
 const usePersistedState = (key, initialState) => {
-    const [state, setState] = useState(null);
+    const [state, setState] = useState(initialState);
     
-    const setPersistedState = (value) => {
+    const setPersistedState = value => {
         setState(value);
         localStorage.setItem(key, JSON.stringify(value));
     }
@@ -12,10 +12,7 @@ const usePersistedState = (key, initialState) => {
         if (localStorage.getItem(key)) {
             setState(JSON.parse(localStorage.getItem(key)))
         }
-        else {
-            setPersistedState(initialState)
-        }
-    }, []);
+    });
 
     return [state, setPersistedState]
 }
